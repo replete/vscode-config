@@ -1,0 +1,230 @@
+/* vscode compact style */
+/* Sidebar title */
+.monaco-workbench .part.sidebar>.title {
+	.title-label {
+		margin-left:-64px;
+		opacity:0.6;
+	}
+}
+.monaco-workbench .part>.header-or-footer, .monaco-workbench .part>.title {
+	height:30px;
+
+	&:first-of-type {
+		.action-item {
+			margin-top:-5px;
+			padding:0 !important;
+
+		}
+	}
+}
+
+/* Sidebar Pane header */
+.monaco-pane-view .pane>.pane-header {
+	.twisty-container {
+		transform:translate(4px, 0) !important;
+	}
+
+	h3.title {
+		font-size:10px !important;
+		opacity:0.8;
+	}
+}
+
+/* File explorer collapse toggle */
+.monaco-workbench .codicon[class*=codicon-],
+.monaco-tl-twistie {
+	opacity:0.7;
+	padding-right:4px;
+	/* transform:scale(0.9); */
+	/* transform-origin: center center; */
+}
+
+/* File Explorer: Slightly increased indents */
+/* :root {
+	--vs-indent: 8px;
+	--replete-indent-offset: 3px;
+}
+.monaco-tl-row:has(.monaco-tl-indent[style="width: 8px;"]) { padding-left:calc( (var(--vs-indent) - var(--replete-indent-offset)) * 1) }
+.monaco-tl-row:has(.monaco-tl-indent[style="width: 16px;"]) { padding-left:calc( (var(--vs-indent) - var(--replete-indent-offset)) * 2) }
+.monaco-tl-row:has(.monaco-tl-indent[style="width: 24px;"]) { padding-left:calc( (var(--vs-indent) - var(--replete-indent-offset)) * 3) }
+.monaco-tl-row:has(.monaco-tl-indent[style="width: 32px;"]) { padding-left:calc( (var(--vs-indent) - var(--replete-indent-offset)) * 4) }
+.monaco-tl-row:has(.monaco-tl-indent[style="width: 40px;"]) { padding-left:calc( (var(--vs-indent) - var(--replete-indent-offset)) * 5) }
+.monaco-tl-row:has(.monaco-tl-indent[style="width: 48px;"]) { padding-left:calc( (var(--vs-indent) - var(--replete-indent-offset)) * 6) }
+.monaco-tl-row:has(.monaco-tl-indent[style="width: 56px;"]) { padding-left:calc( (var(--vs-indent) - var(--replete-indent-offset)) * 7) }
+.monaco-tl-row:has(.monaco-tl-indent[style="width: 64px;"]) { padding-left:calc( (var(--vs-indent) - var(--replete-indent-offset)) * 8) }
+.monaco-tl-row:has(.monaco-tl-indent[style="width: 72px;"]) { padding-left:calc( (var(--vs-indent) - var(--replete-indent-offset)) * 9) }
+.monaco-tl-row:has(.monaco-tl-indent[style="width: 80px;"]) { padding-left:calc( (var(--vs-indent) - var(--replete-indent-offset)) * 10) }
+.monaco-tl-row:has(.monaco-tl-indent[style="width: 88px;"]) { padding-left:calc( (var(--vs-indent) - var(--replete-indent-offset)) * 11) }
+.monaco-tl-row:has(.monaco-tl-indent[style="width: 96px;"]) { padding-left:calc( (var(--vs-indent) - var(--replete-indent-offset)) * 12) }
+.monaco-tl-row:has(.monaco-tl-indent[style="width: 104px;"]) { padding-left:calc( (var(--vs-indent) - var(--replete-indent-offset)) * 13) }
+.monaco-tl-row:has(.monaco-tl-indent[style="width: 112px;"]) { padding-left:calc( (var(--vs-indent) - var(--replete-indent-offset)) * 14) } */
+
+
+/* File Explorer: dots markers on indented rows */
+/* .monaco-tl-row:has(.monaco-tl-indent[style*="width: "]:not([style*="width: 0px;"])) {
+	.monaco-icon-label {
+		&::after {
+			content:'-';
+			height:1em;
+			width:1em;
+			display:block;
+			opacity:0.4;
+			position:absolute;
+			margin-left:-12px;
+			line-height:1.05em
+		}
+	}
+} */
+
+
+/* File Explorer: Reduced padding */
+.monaco-list-row {
+	padding-left:0 !important;
+	padding-right:0 !important;
+}
+.monaco-icon-label:after {
+	margin-right:8px !important
+}
+[class*=monaco-decoration-bubble]::after {
+	margin-right:6px !important;
+}
+
+/* File Explorer: Desaturate material icons */
+.monaco-tl-row {
+	&:has(> .monaco-tl-contents>div.folder-icon) {
+
+		/* desaturate matierial icons slightly */
+		.monaco-icon-label::before {
+			filter:saturate(0.8);
+		}
+	}
+}
+
+/* Tabs: More compact */
+.monaco-workbench .part.editor>.content .editor-group-container>.title .tabs-container>.tab {
+	padding-left:5px;
+
+	/* smaller margin */
+	&:has(.file-icon) {
+		padding-left:3px;
+	}
+
+	/* shrink icon */
+	.file-icon::before {
+		padding-right:3px;
+		transform:scale(0.8);
+	}
+
+	/* actions button (close/change) on right*/
+	.tab-actions {
+		width:18px;
+	}
+	.monaco-action-bar {
+		width:6px;
+	}
+	.actions-container {
+		margin-left:-6px !important;
+	}
+	/* bg fade on close/state button */
+	&.active,
+	:hover {
+		.tab-actions::before {
+			content:'';
+			display:block;
+			position:absolute;
+			height:1em;
+			width:2em;
+			background:linear-gradient(to left, var(--vscode-tab-inactiveBackground), transparent);
+			top:50%;
+			margin-left:-10px;
+			transform: translateY(-50%);
+
+		}
+	}
+	/* shorter minimum tab size */
+	&.sizing-fit {
+		width:80px;
+	}
+}
+
+/* Tabs right toolbar */
+.monaco-workbench .part.editor>.content .editor-group-container>.title>.tabs-and-actions-container {
+	.editor-actions {
+		padding-right:0;
+
+		.action-label {
+			padding:0;
+		}
+	}
+}
+
+/* better breadcrumbs */
+.monaco-breadcrumbs {
+	opacity:0.7;
+	filter:saturate(0);
+	font-size:80%;
+	transform:translateY(-1px);
+
+	&:hover {
+		opacity:1;
+		filter:saturate(1);
+	}
+
+	.monaco-icon-label {
+
+		/* hide icon */
+		&::before {
+			display:none;
+		}
+	}
+}
+
+/* Sticky widget shadow */
+.monaco-editor .sticky-widget {
+	box-shadow: 0 9px 8px -8px var(--vscode-editorStickyScroll-shadow);
+	border-bottom:1px solid var(--separator-border);
+}
+
+/* Workbench (bottom panel)*/
+/* .monaco-workbench .part.bottom {
+	--this-height:22px;
+
+	>.title {
+		height:var(--this-height);
+
+		.actions-container {
+			line-height:var(--this-height);
+			height:var(--this-height);
+		}
+
+		.action-label {
+			height:var(--this-height);
+		}
+	}
+
+	> .composite.has-composite-bar {
+		padding-left:5px;
+		padding-right:0;
+	}
+
+	.pane-header {
+		height:16px;
+	}
+} */
+ .monaco-workbench .part.bottom {
+
+	> .composite.has-composite-bar {
+		padding-left:5px;
+		padding-right:0;
+	}
+}
+
+.tab {
+	&.active {
+		/* border-top:1px solid var(--vscode-tab-activeBorder); */
+
+		&.selected {
+			background:linear-gradient(-12deg, transparent 60%, #0078d466)
+		}
+	}
+}
